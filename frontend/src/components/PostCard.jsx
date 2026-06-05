@@ -14,17 +14,14 @@ const PostCard = ({ post, onPostUpdated, onPostDeleted }) => {
     const [expanded, setExpanded] = useState(false);
     const [commentText, setCommentText] = useState('');
 
-    // Post edit/menu states
     const [anchorEl, setAnchorEl] = useState(null);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [editText, setEditText] = useState('');
     const [editImage, setEditImage] = useState('');
 
-    // Comment edit states
     const [editingCommentId, setEditingCommentId] = useState(null);
     const [editingCommentText, setEditingCommentText] = useState('');
 
-    // Delete confirmation states
     const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
     const [deleteTarget, setDeleteTarget] = useState({ type: null, id: null });
 
@@ -52,7 +49,6 @@ const PostCard = ({ post, onPostUpdated, onPostDeleted }) => {
         }
     };
 
-    // Post handlers
     const handleMenuOpen = (e) => {
         setAnchorEl(e.currentTarget);
     };
@@ -96,7 +92,6 @@ const PostCard = ({ post, onPostUpdated, onPostDeleted }) => {
         handleMenuClose();
     };
 
-    // Comment handlers
     const handleUpdateComment = async (commentId) => {
         if (!editingCommentText.trim()) return;
         try {
@@ -113,7 +108,6 @@ const PostCard = ({ post, onPostUpdated, onPostDeleted }) => {
         setDeleteDialogOpen(true);
     };
 
-    // Confirm execution of delete
     const handleConfirmDelete = async () => {
         setDeleteDialogOpen(false);
         if (deleteTarget.type === 'post') {

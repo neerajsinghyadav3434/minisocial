@@ -70,7 +70,7 @@ router.post('/:id/comment', auth, async (req, res) => {
     }
 });
 
-// Update a post
+
 router.put('/:id', auth, async (req, res) => {
     try {
         const { text, image } = req.body;
@@ -92,7 +92,7 @@ router.put('/:id', auth, async (req, res) => {
     }
 });
 
-// Delete a post
+
 router.delete('/:id', auth, async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
@@ -109,7 +109,7 @@ router.delete('/:id', auth, async (req, res) => {
     }
 });
 
-// Update a comment
+
 router.put('/:id/comment/:commentId', auth, async (req, res) => {
     try {
         const { text } = req.body;
@@ -133,7 +133,7 @@ router.put('/:id/comment/:commentId', auth, async (req, res) => {
     }
 });
 
-// Delete a comment
+
 router.delete('/:id/comment/:commentId', auth, async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
